@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainNavigationController.swift
 //  TimeManager
 //
 //  Created by и on 04.11.2020.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .purple
     }
-
-
 }
-
