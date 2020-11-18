@@ -1,32 +1,46 @@
 //
-//  TimeCell.swift
+//  EventsCell.swift
 //  TimeManager
 //
-//  Created by и on 09.11.2020.
+//  Created by и on 14.11.2020.
 //  Copyright © 2020 badyi. All rights reserved.
 //
 
 import UIKit
 
-final class TimeCell: UICollectionViewCell {
+final class EventsCell: UICollectionViewCell {
     
-    static let identifier = "TimeCVCell"
+    static let identifier = "EventsCell"
     
-    private let label: UILabel = {
+    private var topLine: CALayer = {
+        let topLine = CALayer()
+        topLine.frame = CGRect(x: 0.0, y: 0.0 , width: .zero, height: .zero)
+        topLine.backgroundColor = ThemeManager.currentTheme().cellLineColor.cgColor
+        return topLine
+        
+    }()
+    
+    private var bottomLine: CALayer = {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: 0.0, width: .zero, height: .zero)
+        bottomLine.backgroundColor = UIColor.darkGray.cgColor
+        return bottomLine
+    }()
+    
+    private lazy var label: UILabel = {
         let label = UILabel(frame: .zero)
         label.text = "time"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .right
-        label.textColor = .black
-        label.backgroundColor = .white
+        label.textColor = ThemeManager.currentTheme().timeCellTextColor
         label.font = label.font.withSize(10)
-        #warning("colors")
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .orange
+        contentView.backgroundColor = ThemeManager.currentTheme().backgroundColor
+
     }
     
     required init?(coder: NSCoder) {
@@ -34,16 +48,42 @@ final class TimeCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
-        contentView.addSubview(label)
-        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -1).isActive = true
-        label.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: contentView.frame.width - 65).isActive = true
-        label.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: contentView.frame.height - 110).isActive = true
+        configTimeLabel()
+        configTopBorder()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        bottomLine.isHidden = true
     }
 }
 
-extension TimeCell {
-    func config(by indexPath: IndexPath) {
+extension EventsCell {
+    func configTimeLabel() {
+        self.contentView.addSubview(label)
+        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.15/3.5).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 1).isActive = true
+        label.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: contentView.frame.width * -0.85 - contentView.frame.width * 0.15/3.5).isActive = true
+        label.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: contentView.frame.height * -0.8).isActive = true
+        print(label.frame.height)
+    }
+    
+    func configTopBorder() {
+        topLine.frame = CGRect(x: contentView.frame.width * 0.17, y: 6.5, width: contentView.frame.width * 0.83 , height: 1)
+        self.layer.addSublayer(topLine)
+    }
+    
+    func configBottomBorder() {
+        //bottomLine.isHidden = false
+        //bottomLine.frame = CGRect(x: 5, y: self.frame.height - 6, width: self.frame.width - 5, height: 1)
+        //bottomLine.backgroundColor = ThemeManager.currentTheme().cellLineColor.cgColor
+        //self.layer.addSublayer(bottomLine)
+    }
+}
+
+extension EventsCell {
+    func configTime(by indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
             label.text = TimeByIndex.time00.rawValue
@@ -91,14 +131,11 @@ extension TimeCell {
             label.text = TimeByIndex.time22.rawValue
         case 22:
             label.text = TimeByIndex.time23.rawValue
-        case 23:
-            label.text = TimeByIndex.time00.rawValue
         default:
             label.text = "out of range"
         }
     }
 }
-
 
 enum TimeByIndex: String {
     case time00 = "00:00"

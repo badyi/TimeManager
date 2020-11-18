@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainTabBarController = MainTabBarController()
         let mainNavigationController = MainNavigationController()
-        let dayVC = DayViewController()
-        dayVC.title = "DayVC"
+        //let dayVC = DayViewController()
+        //dayVC.title = "DayVC"
         
-        mainNavigationController.viewControllers = [dayVC]
+        //mainNavigationController.viewControllers = [dayVC]
         mainTabBarController.viewControllers = [mainNavigationController]
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

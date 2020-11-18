@@ -13,7 +13,12 @@
 		0818BB8425531CF200590949 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818BB8325531CF200590949 /* MainNavigationController.swift */; };
 		0818BB8625531D1B00590949 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818BB8525531D1B00590949 /* MainTabBarController.swift */; };
 		0818BB882554391B00590949 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818BB872554391B00590949 /* DayViewController.swift */; };
-		08D36FCE2558A7DC00CC8E17 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D36FCD2558A7DC00CC8E17 /* TimeCell.swift */; };
+		08AD636C2561C76C00098B7F /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD636B2561C76C00098B7F /* YearViewController.swift */; };
+		08C7A2D42562B6E900800301 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C7A2D32562B6E900800301 /* MonthHeaderView.swift */; };
+		08C7A2D62563960300800301 /* DateExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C7A2D52563960300800301 /* DateExtenstions.swift */; };
+		08CF43D6255FE511005D2CE2 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF43D5255FE511005D2CE2 /* ThemeManager.swift */; };
+		08CF43D925606083005D2CE2 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF43D825606083005D2CE2 /* EventsCell.swift */; };
+		08CF43DB25618E7A005D2CE2 /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF43DA25618E7A005D2CE2 /* MonthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +30,12 @@
 		0818BB8325531CF200590949 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		0818BB8525531D1B00590949 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0818BB872554391B00590949 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
-		08D36FCD2558A7DC00CC8E17 /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		08AD636B2561C76C00098B7F /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
+		08C7A2D32562B6E900800301 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
+		08C7A2D52563960300800301 /* DateExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtenstions.swift; sourceTree = "<group>"; };
+		08CF43D5255FE511005D2CE2 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		08CF43D825606083005D2CE2 /* EventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
+		08CF43DA25618E7A005D2CE2 /* MonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +70,11 @@
 			children = (
 				0818BB6F255315BC00590949 /* AppDelegate.swift */,
 				0818BB8525531D1B00590949 /* MainTabBarController.swift */,
+				08CF43D5255FE511005D2CE2 /* ThemeManager.swift */,
 				0818BB8325531CF200590949 /* MainNavigationController.swift */,
+				08C7A2D52563960300800301 /* DateExtenstions.swift */,
+				08AD636D2561C7F700098B7F /* Year */,
+				08CF43DE25618EA4005D2CE2 /* Month */,
 				0818BB892554391F00590949 /* DayViewController */,
 				0818BB78255315C100590949 /* Assets.xcassets */,
 				0818BB7A255315C100590949 /* LaunchScreen.storyboard */,
@@ -78,10 +92,27 @@
 			path = DayViewController;
 			sourceTree = "<group>";
 		};
+		08AD636D2561C7F700098B7F /* Year */ = {
+			isa = PBXGroup;
+			children = (
+				08AD636B2561C76C00098B7F /* YearViewController.swift */,
+			);
+			path = Year;
+			sourceTree = "<group>";
+		};
+		08CF43DE25618EA4005D2CE2 /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				08CF43DA25618E7A005D2CE2 /* MonthViewController.swift */,
+				08C7A2D32562B6E900800301 /* MonthHeaderView.swift */,
+			);
+			path = Month;
+			sourceTree = "<group>";
+		};
 		08D36FCA2557086200CC8E17 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				08D36FCD2558A7DC00CC8E17 /* TimeCell.swift */,
+				08CF43D825606083005D2CE2 /* EventsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -157,10 +188,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0818BB8425531CF200590949 /* MainNavigationController.swift in Sources */,
+				08CF43DB25618E7A005D2CE2 /* MonthViewController.swift in Sources */,
 				0818BB70255315BC00590949 /* AppDelegate.swift in Sources */,
+				08C7A2D62563960300800301 /* DateExtenstions.swift in Sources */,
 				0818BB8625531D1B00590949 /* MainTabBarController.swift in Sources */,
-				08D36FCE2558A7DC00CC8E17 /* TimeCell.swift in Sources */,
+				08C7A2D42562B6E900800301 /* MonthHeaderView.swift in Sources */,
+				08AD636C2561C76C00098B7F /* YearViewController.swift in Sources */,
+				08CF43D925606083005D2CE2 /* EventsCell.swift in Sources */,
 				0818BB882554391B00590949 /* DayViewController.swift in Sources */,
+				08CF43D6255FE511005D2CE2 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
