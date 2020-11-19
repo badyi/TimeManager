@@ -37,6 +37,7 @@ final class EventsCell: UICollectionViewCell {
         return label
     }()
     
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = ThemeManager.currentTheme().backgroundColor
@@ -48,13 +49,12 @@ final class EventsCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
-        configTimeLabel()
+        //configTimeLabel()
         configTopBorder()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         bottomLine.isHidden = true
     }
 }
@@ -63,14 +63,13 @@ extension EventsCell {
     func configTimeLabel() {
         self.contentView.addSubview(label)
         label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.15/3.5).isActive = true
-        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 1).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         label.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: contentView.frame.width * -0.85 - contentView.frame.width * 0.15/3.5).isActive = true
         label.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: contentView.frame.height * -0.8).isActive = true
-        print(label.frame.height)
     }
     
     func configTopBorder() {
-        topLine.frame = CGRect(x: contentView.frame.width * 0.17, y: 6.5, width: contentView.frame.width * 0.83 , height: 1)
+        topLine.frame = CGRect(x: contentView.frame.width * 0.17, y: 0, width: contentView.frame.width * 0.83 , height: 0.3)
         self.layer.addSublayer(topLine)
     }
     

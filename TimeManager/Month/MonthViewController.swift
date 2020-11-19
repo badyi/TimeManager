@@ -76,18 +76,17 @@ extension MonthViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let navBarHeight = navigationController?.navigationBar.frame.height ?? 0
-        let tabBarHeight = (tabBarController?.tabBar.frame.size.height ?? 0)
         let width = collectionView.frame.width
-        let height = CGFloat(70)
+        let height = collectionView.frame.height / 6
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navBarHeight = navigationController?.navigationBar.frame.height ?? 0
         let tabBarHeight = (tabBarController?.tabBar.frame.size.height ?? 0)
         let width = collectionView.frame.width
-        let height = collectionView.bounds.height - collectionView.bounds.height / 6 - tabBarHeight - navBarHeight
+        let height = collectionView.frame.height * 5/6 - navBarHeight - tabBarHeight - statusBarHeight
         return CGSize(width: width, height: height)
     }
 }

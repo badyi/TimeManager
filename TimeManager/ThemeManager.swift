@@ -32,9 +32,9 @@ enum Theme: Int {
     var cellLineColor: UIColor {
         switch self {
         case .light:
-            return .lightGray
+            return .darkGray
         case .dark:
-            return .lightGray
+            return .darkGray
         }
     }
     
