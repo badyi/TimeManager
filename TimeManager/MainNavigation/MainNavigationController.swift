@@ -22,6 +22,7 @@ final class MainNavigationController: UINavigationController {
         dayVC.title = "DayVC"
         monthVC.title = "MonthVC"
         yearVC.title = "YearVC"
-        self.viewControllers = [yearVC, monthVC, dayVC]
+        //self.viewControllers = [yearVC, monthVC, dayVC]
+        self.navigationController!.pushViewController(yearVC, animated: false)
     }
 }

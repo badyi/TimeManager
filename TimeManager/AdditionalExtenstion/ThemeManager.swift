@@ -38,6 +38,15 @@ enum Theme: Int {
         }
     }
     
+    var currentTimeLabelColor: UIColor {
+        switch self {
+        case .light:
+            return .red
+        default:
+            return .red
+        }
+    }
+    
     var timeCellTextColor: UIColor {
         switch self {
         case .light:
